@@ -1,0 +1,33 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: "quizapp"
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "quizapp"
+    spec:
+      containers:
+        - name: "quizapp"
+          image: "quizreg.azurecr.io/quizapp"
+          ports:
+          - containerPort: 80
+          
+          ---
+apiVersion: v1
+kind: Service
+metadata:
+    name: "quizapp"
+    labels:
+        app: "quizapp"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+    selector:
+        app: "quizapp"
