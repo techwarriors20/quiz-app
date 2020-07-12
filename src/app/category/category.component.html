@@ -1,0 +1,385 @@
+<app-mainnav>
+</app-mainnav>
+<div id="content-container">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">
+            {{id}}</h1>
+        <!--Searchbox-->
+        <div class="searchbox">
+            <div class="input-group custom-search-form">
+
+            </div>
+        </div>
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!--End page title-->
+    <!--Page content-->
+    <!--===================================================-->
+    <div id="page-content">
+        <div class="row">
+
+            <!-- <table border="1" style="width: 33%">
+                <tr>
+                    <th>QuestionID</th>
+                  <th>question</th>
+                  <th>answer</th>
+                  <th>answerDetail</th>
+                  <th>answertype</th>
+                 
+                </tr>
+                <tr *ngFor="let qdata of quizcategoryqa let i=index;">
+                    <td>{{i+10000}}</td>
+                  <td>{{ qdata.question }}</td>
+                  <td>{{ qdata.answers[0].answer }}
+                    <td>{{ qdata.answers[0].answerDetail }}
+                        <td>{{ qdata.answerType }}</td>
+                </tr>
+              </table>  -->
+
+            <div class="col-lg-13">
+                <div class="row">
+                    <div class="col-sm-1 col-lg-1">
+
+                    </div>
+                    <div class="col-sm-2 col-lg-2" *ngFor="let qdata of quizcategory; let i=index">
+                        <!--Sparkline Area Chart-->
+                        <div (click)="scategroyclick()" id="tbl_curiq" class="panel panel-success panel-colorful"
+                            style="border-top:5px solid darkgreen">
+                            <div class="pad-all">
+                                <p class="text-lg text-semibold">
+                                    <i class="demo-pli-heart-2 icon-fw"></i>{{qdata.quizName}}</p>
+
+                                <p class="mar-no">
+                                    <span class="pull-right text-bold">10</span> Per Categories
+                                </p>
+                                <p class="mar-no">
+                                    <span class="pull-right text-bold">10</span> Completed Q & A
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div>
+
+        </div>
+        <div class="row" id="tbl_QAsection" *ngIf="show">
+            <div class="col-xs-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Q & A Details</h3>
+                    </div>
+                    <!--Data Table-->
+                    <!--===================================================-->
+                    <div class="panel-body">
+                        <div class="pad-btm form-inline">
+                            <div class="row">
+                                <div class="col-sm-6 table-toolbar-left">
+                                    <button data-toggle="modal" data-target="#myModal" class="btn btn-purple">
+                                        <i class="demo-pli-add icon-fw"></i>Add</button>
+                                    <button class="btn btn-default">
+                                        <i class="demo-pli-printer"></i>
+                                    </button>
+                                    <div class="btn-group">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 table-toolbar-right">
+                                    <div class="form-group">
+                                        <input autocomplete="off" class="form-control" placeholder="Search"
+                                            id="demo-input-search2" type="text">
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-default">
+                                            <i class="demo-pli-download-from-cloud"></i>
+                                        </button>
+                                        <div class="btn-group">
+                                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <li><a href="#">Q & A ID</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>QuestionID</th>
+                  <th>question</th>
+                  <th>answer</th>
+                  <th>answerDetail</th>
+                  <th>answertype</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let qdata of quizcategoryqa let i=index;">
+                                    <tr>
+                                        <td>
+                                            <a href="#" class="btn-link">#{{i+10000}}</a>
+                                        </td>
+                                        <td>
+                                            {{ qdata.question }}
+                                        </td>
+                                        <td>
+                                            <span class="text-muted"><i class="fa fa-clock-o"></i>{{ qdata.answers[0].answer }}</span>
+                                        </td>
+                                        <td>
+                                        {{ qdata.answers[0].answerDetail }}
+                                    </td>
+                                        <td>
+
+                                            <button data-toggle="modal" data-target="#myModal" class="btn btn-purple">
+                                                {{ qdata.answerType }}</button>
+                                        </td>
+
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <div class="pull-right">
+                            <ul class="pagination text-nowrap mar-no">
+                                <li class="page-pre disabled"><a href="#">&lt;</a> </li>
+                                <li class="page-number active"><span>1</span> </li>
+                                <li class="page-number"><a href="#">2</a> </li>
+                                <li class="page-number"><a href="#">3</a> </li>
+                                <li><span>...</span> </li>
+                                <li class="page-number"><a href="#">9</a> </li>
+                                <li class="page-next"><a href="#">&gt;</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--===================================================-->
+                    <!--End Data Table-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End page content-->
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;</button>
+                <h4 class="modal-title">
+                    Q & A Tickets</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="Addquiz" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="name">
+                            QuizCategory</label>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="quizCategory" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.quizCategory.errors }" />
+                            <div *ngIf="submitted && f.quizCategory.errors" class="invalid-feedback">
+                                <div *ngIf="f.quizCategory.errors.required">quizCategory is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="name">
+                            quizName</label>
+                        <div class="col-md-8">
+                            <input type="text" formControlName="quizName" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.quizName.errors }" />
+                            <div *ngIf="submitted && f.quizName.errors" class="invalid-feedback">
+                                <div *ngIf="f.quizName.errors.required">quizName is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-container" formArrayName="questionAnswer">
+                        <div [formGroupName]="j" *ngFor="let question of getQuestions(Addquiz); let j = index">
+                        
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="name">
+                            question</label>
+                        <div class="col-md-8">
+                                <input type="text" formControlName="question" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.quizName.errors }">
+                                    <div *ngIf="submitted && f.question.errors" class="invalid-feedback">
+                                        <div *ngIf="f.question.errors.required">question is required</div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="name">
+                                    answerType</label>
+                                <div class="col-md-8">
+                                        <input type="text" formControlName="answerType" class="form-control"
+                                                [ngClass]="{ 'is-invalid': submitted && f.answerType.errors }">
+                                            <div *ngIf="submitted && f.answerType.errors" class="invalid-feedback">
+                                                <div *ngIf="f.answerType.errors.required">answerType is required</div>
+                                            </div>
+        
+        
+                                        </div>
+                                    </div>
+
+                            
+                            <div formArrayName="answers">
+                                <div [formGroupName]="j" *ngFor="let answer of getQuestions(Addquiz); let j=index;">
+
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">
+                                            answer</label>
+                                        <div class="col-md-8">
+                                                <input type="text" formControlName="answer" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.answer.errors }">
+                                                    <div *ngIf="submitted && f.answer.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.answer.errors.required">question is required</div>
+                                                    </div>
+                
+                
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">
+                                            iscorrect</label>
+                                        <div class="col-md-8">
+                                                <input type="text" formControlName="iscorrect" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.iscorrect.errors }">
+                                                    <div *ngIf="submitted && f.iscorrect.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.iscorrect.errors.required">iscorrect is required</div>
+                                                    </div>
+                
+                
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="name">
+                                                    answerDetail</label>
+                                                <div class="col-md-8">
+                                                        <input type="text" formControlName="answerDetail" class="form-control"
+                                                                [ngClass]="{ 'is-invalid': submitted && f.answerDetail.errors }">
+                                                            <div *ngIf="submitted && f.answerDetail.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.answerDetail.errors.required">answerDetail is required</div>
+                                                            </div>
+                        
+                        
+                                                        </div>
+                                                    </div>
+                                </div>
+                            </div>
+                        
+                        
+                                </div>
+                    </div>
+
+                    <div class="question-container" formGroupName="calculation">
+                        
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="name">
+                                    type</label>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="type" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                                    <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                                        <div *ngIf="f.type.errors.required">type is required</div>
+                                    </div>
+                                </div>
+                                </div>
+
+                            <div class="question-container" formArrayName="result">
+                                <div [formGroupName]="j" *ngFor="let res of getresult(Addquiz); let j=index">
+                               
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="min">
+                                    min</label>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="min" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.min.errors }">
+                                    <div *ngIf="submitted && f.min.errors" class="invalid-feedback">
+                                        <div *ngIf="f.min.errors.required">min is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="max">
+                                    max</label>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="max" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.max.errors }">
+                                    <div *ngIf="submitted && f.max.errors" class="invalid-feedback">
+                                        <div *ngIf="f.max.errors.required">max is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="max">
+                                    resultText</label>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="resultText" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.resultText.errors }">
+                                    <div *ngIf="submitted && f.resultText.errors" class="invalid-feedback">
+                                        <div *ngIf="f.resultText.errors.required">resultText is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="max">
+                                    additionalDisplay</label>
+                                <div class="col-md-8">
+                                    <input type="text" formControlName="additionalDisplay" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.additionalDisplay.errors }">
+                                    <div *ngIf="submitted && f.additionalDisplay.errors" class="invalid-feedback">
+                                        <div *ngIf="f.additionalDisplay.errors.required">resultText is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                         
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success"> Save</button>
+                <button type="button" class="btn btn-purple" data-dismiss="modal"> Close</button>
+            </div>
+        </div>
+    </div>
+</div>

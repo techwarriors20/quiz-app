@@ -1,0 +1,70 @@
+<app-cnavbar></app-cnavbar>
+<div id="content-container" style="padding-left: 6px;padding-bottom: :0px;;">
+    <!--Page Title-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="page-title">
+        <h1 class="page-header text-overflow">
+            Dashboard</h1>
+    </div>
+
+
+     
+</div>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--End page title-->
+<!--Page content-->
+<!--===================================================-->
+
+
+<div id="page-content">
+    <div class="row">
+         
+                         
+        <div class="col-lg-13" *ngFor="let qdata of quizmodel; let i=index" >
+           
+             
+                 
+                  <div class="col-sm-6 col-lg-6" >
+                    <!--Sparkline Area Chart-->
+                    <div  [ngClass]="getClass(i)">
+                        <div class="pad-all">
+                            <p class="text-lg text-semibold">
+                                <i class="demo-pli-heart-2 icon-fw"></i>{{qdata.quizCategory}}</p>
+                            <p class="mar-no">
+                                <span class="pull-right text-bold">3</span>  <a style="color:blue;;" [routerLink] ="['/clientcategory',qdata.quizCategory]">Assigned Course  </a>
+                            </p>
+                            <p class="mar-no">
+                                <span class="pull-right text-bold">10</span> Pending 
+                            </p>
+                            <p class="mar-no">
+                                <span class="pull-right text-bold">10</span> Completed  
+                            </p>
+                        </div>
+                        <div class="pad-all">
+                            <ul class="list-group list-unstyled">
+                                <li class="mar-btm"><span class="label label-warning pull-right">100%</span>
+                                    <p>
+                                        Question & Answer</p>
+                                    <div class="progress progress-md">
+                                        <div style="width: 100%;" class="progress-bar progress-bar-light">
+                                            <span class="sr-only">100%</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+          
+
+             
+            
+
+
+
+            
+        </div>
+    </div>
+
+</div>

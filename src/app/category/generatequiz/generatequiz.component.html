@@ -1,0 +1,16 @@
+<div id="content-container">
+
+    
+               
+<form class="form-horizontal" [formGroup]="Addquiz"  (ngSubmit)="onSubmit()" >
+
+    <div class="form-group col-4">
+        <label>First Name</label>
+        <input type="text" formControlName="quizCategory" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.quizCategory.errors }" />
+        <div *ngIf="submitted && f.quizCategory.errors" class="invalid-feedback">
+            <div *ngIf="f.quizCategory.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <button type="submit">test</button>
+</form>
+</div>
